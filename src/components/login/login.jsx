@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import './signup.css'
 
-function Signup() {
+function Login() {
     const [formValues, setFormValues] = useState({
-        fullName: '',
-        username: '',
         email: '',
         password: ''
     })
@@ -17,9 +14,8 @@ function Signup() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        // For now, just log values; replace with API call as needed
-        console.log('Signup submitted', formValues)
-        alert('Signed up successfully!')
+        console.log('Login submitted', formValues)
+        alert('Logged in!')
     }
 
     return (
@@ -27,45 +23,12 @@ function Signup() {
             <div className="w-full max-w-md">
                 <div className="backdrop-blur bg-white/70 border border-white/60 shadow-xl rounded-2xl p-8">
                     <div className="text-center mb-8">
-                        <div className="mx-auto h-12 w-12 rounded-xl bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">S</div>
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-900">Create your account</h1>
-                        <p className="mt-1 text-sm text-gray-500">It only takes a minute.</p>
+                        <div className="mx-auto h-12 w-12 rounded-xl bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">L</div>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-900">Welcome back</h1>
+                        <p className="mt-1 text-sm text-gray-500">Log in to your account</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-5 justify-start">
-                        <div>
-                            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 text-left">Full name</label>
-                            <input
-                                id="fullName"
-                                name="fullName"
-                                type="text"
-                                autoComplete="name"
-                                required
-                                value={formValues.fullName}
-                                onChange={handleChange}
-                                className="mt-1 block w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-indigo-400 focus:ring-4 focus:ring-indigo-200 outline-none transition"
-                                placeholder="John Doe"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="username" className="block text-sm font-medium text-gray-700 text-left">Username</label>
-                            <div className="mt-1 relative">
-                                <input
-                                    id="username"
-                                    name="username"
-                                    type="text"
-                                    autoComplete="username"
-                                    required
-                                    value={formValues.username}
-                                    onChange={handleChange}
-                                    className="block w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-indigo-400 focus:ring-4 focus:ring-indigo-200 outline-none transition pr-12"
-                                    placeholder="johndoe"
-                                />
-                                <span className="absolute inset-y-0 right-3 inline-flex items-center text-gray-400">@</span>
-                            </div>
-                        </div>
-
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-left">Email</label>
                             <input
@@ -88,7 +51,7 @@ function Signup() {
                                     id="password"
                                     name="password"
                                     type={showPassword ? 'text' : 'password'}
-                                    autoComplete="new-password"
+                                    autoComplete="current-password"
                                     required
                                     value={formValues.password}
                                     onChange={handleChange}
@@ -110,15 +73,12 @@ function Signup() {
                             type="submit"
                             className="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-medium py-2.5 shadow-lg shadow-indigo-200 hover:from-indigo-600 hover:to-pink-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300 transition"
                         >
-                            Create account
+                            Log in
                         </button>
 
-                        <p className="text-center text-sm text-gray-500">
-                            By signing up, you agree to our
-                            <a className="text-indigo-600 hover:text-indigo-700 font-medium ml-1" href="#">Terms</a>
-                            <span> and </span>
-                            <a className="text-indigo-600 hover:text-indigo-700 font-medium" href="#">Privacy Policy</a>.
-                        </p>
+                        <div className="flex items-center justify-between text-sm">
+                            <a className="text-indigo-600 hover:text-indigo-700 font-medium" href="#">Forgot password?</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -126,4 +86,5 @@ function Signup() {
     )
 }
 
-export default Signup
+export default Login
+

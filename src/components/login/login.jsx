@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -15,11 +18,25 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("Login submitted", formValues);
-    alert("Logged in!");
-  }
 
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, formValues.email, formValues.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        alert("Logged in!");
+        navigate("/dashboard");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Invalid Credentioals");
+      });
+  }
+  // bg-gradient-to-br from-indigo-50 via-white to-pink-50
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-pink-50 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen  flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         <div className="backdrop-blur bg-white/70 border border-white/60 shadow-xl rounded-2xl p-8">
           <div className="text-center mb-8">

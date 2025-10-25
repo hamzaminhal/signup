@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import ThemeBtn from "../themeBtn/ThemeBtn";
@@ -134,12 +135,13 @@ function Login() {
 
               <div className="flex items-center  text-sm">
                 Not created account -
-                <a
+                <NavLink
+                  to="/signup"
                   className="text-indigo-600 hover:text-indigo-700 font-medium"
-                  href="/signup"
+                  end
                 >
                   Create Here
-                </a>
+                </NavLink>
               </div>
             </form>
           </div>

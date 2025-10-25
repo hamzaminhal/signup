@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router";
 import "./signup.css";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase-config";
@@ -188,12 +189,13 @@ function Signup() {
 
               <p className="text-center text-sm text-gray-500">
                 Already Registered -
-                <a
+                <NavLink
+                  to="/login"
                   className="text-indigo-600 hover:text-indigo-700 font-medium"
-                  href="/login"
+                  end
                 >
                   Login Here
-                </a>
+                </NavLink>
                 .
               </p>
             </form>

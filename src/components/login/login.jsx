@@ -63,9 +63,6 @@ function Login() {
         <div className="w-full max-w-md">
           <div className="backdrop-blur bg-white/70 border border-white/60 shadow-xl rounded-2xl p-8">
             <div className="text-center mb-8">
-              <div className="mx-auto h-12 w-12 rounded-xl bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">
-                L
-              </div>
               <h1 className="mt-4 text-2xl font-semibold text-gray-900">
                 Welcome back
               </h1>
